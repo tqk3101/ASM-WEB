@@ -182,7 +182,7 @@ $first_part = $components[1];
     </div>
     <div class="humberger__menu__contact">
         <ul>
-            <li><i class="fa fa-envelope"></i> graphicstablet@gmail.com</li>
+            <li><i class="fa fa-envelope"></i> Khaitqgch211419@fpt.edu.vn</li>
             <li><i class="fa fa-truck"></i> Giao hàng miễn phí</li>
         </ul>
     </div>
@@ -198,7 +198,7 @@ $first_part = $components[1];
                 <div class="col-lg-6 col-md-6">
                     <div class="header__top__left">
                         <ul>
-                            <li><i class="fa fa-envelope"></i> graphicstablet@gmail.com</li>
+                            <li><i class="fa fa-envelope"></i> Khaitqgch211419@fpt.edu.vn</li>
                             <li><i class="fa fa-truck"></i> Giao hàng miễn phí</li>
                         </ul>
                     </div>
@@ -382,7 +382,7 @@ $first_part = $components[1];
                     <ul>
                         @if(session('Cat'))
                             @foreach (session('Cat') as $key=>$cat)
-                                <li><a href="/<?=$cat['id']?>">{{$cat['name']}}</a></li>
+                                <li><a href="/product-cat/<?=$cat['id']?>">{{$cat['name']}}</a></li>
                             @endforeach
                         @endif
                     </ul>
@@ -428,9 +428,9 @@ $first_part = $components[1];
                         <a href="/"><img src="{{URL::asset('img/logo.png')}}" alt=""></a>
                     </div>
                     <ul>
-                        <li><b><i class="fa fa-map-marker"></i> Địa chỉ:</b> Số 288 Đường Nguyễn Văn Linh, Hưng Lợi, Ninh Kiều, Cần Thơ</li>
+                        <li><b><i class="fa fa-map-marker"></i> Địa chỉ:</b> Số 2 Đường Phạm Văn Bạch, Cầu Giấy, Hà Nội</li>
                         <li><b><i class="fa fa-phone"></i> Số điện thoại:</b> +84 888 222 999</li>
-                        <li><b><i class="fa fa-envelope"></i> Email:</b> graphicstablet@gmail.com</li>
+                        <li><b><i class="fa fa-envelope"></i> Email:</b> Khaitqgch211419@fpt.edu.vn</li>
                     </ul>
                 </div>
             </div>
@@ -472,7 +472,7 @@ $first_part = $components[1];
             <div class="col-lg-12">
                 <div class="footer__copyright">
                     <div class="footer__copyright__text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            &copy;<script>document.write(new Date().getFullYear());</script> - Bản quyền thuộc về Graphics Tablet | Website được tạo bởi <i class="fa fa-heart" aria-hidden="true"></i> của <b>Phuong Mai</b>
+                            &copy;<script>document.write(new Date().getFullYear());</script> - Bản quyền thuộc về Graphics Tablet | Website được tạo bởi <b>Quang Khai</b>
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div>
                     <div class="footer__copyright__payment"><img src="img/payment-item.png" alt=""></div>
                 </div>

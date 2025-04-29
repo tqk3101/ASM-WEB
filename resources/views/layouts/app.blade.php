@@ -157,7 +157,7 @@
     @yield('content')
     <div class="row">
         <div class="col-md-12 col-md-12 col-sm-12 col-xs-12 text-center">
-            <p style="margin-top: 10px;"> &copy;<script>document.write(new Date().getFullYear());</script> - Bản quyền thuộc về Graphics Tablet | Website được tạo bởi <i class="fa fa-heart" aria-hidden="true"></i> của <b>Phuong Mai</b></p>
+            <p style="margin-top: 10px;"> &copy;<script>document.write(new Date().getFullYear());</script> - Bản quyền thuộc về Graphics Tablet | Website được tạo bởi <b>Quang Khai</b></p>
         </div>
     </div>
 </div>

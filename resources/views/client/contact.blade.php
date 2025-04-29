@@ -35,7 +35,7 @@
                     <div class="contact__widget">
                         <span><i class="fa fa-map-marker" aria-hidden="true"></i></span>
                         <h4>Địa chỉ</h4>
-                        <p>Hưng Lợi, Ninh Kiều, Cần Thơ</p>
+                        <p>Số 2, Phạm Văn Bạch, Cầu Giấy, Hà Nội</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-6 text-center">
@@ -49,7 +49,7 @@
                     <div class="contact__widget">
                         <span><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
                         <h4>Email</h4>
-                        <p>graphicstablet@gmail.com</p>
+                        <p>Khaitqgch211419@fpt.edu.vn</p>
                     </div>
                 </div>
             </div>
@@ -59,7 +59,7 @@
 
     <!-- Map Begin -->
     <div class="map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3928.8788739320867!2d105.7551225146157!3d10.026853092832743!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31a088476bb00027%3A0xd3c02747d1cbc8c6!2zMjg4IMSQxrDhu51uZyBOZ3V54buFbiBWxINuIExpbmgsIEjGsG5nIEzhu6NpLCBOaW5oIEtp4buBdSwgQ-G6p24gVGjGoSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1628306670469!5m2!1svi!2s"
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.2208021602305!2d105.78745397596965!3d21.023849387945877!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454b329f68977%3A0x6ddf5ff1e829fc56!2zxJDhuqFpIEjhu41jIEdyZWVud2ljaCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1745413437290!5m2!1svi!2s" 
                 height="500" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         <div class="map-inside">
 {{--            <i class="fa fa-map-marker" aria-hidden="true"></i>--}}
@@ -67,7 +67,7 @@
                 <h4>Graphics Tablet</h4>
                 <ul>
                     <li>Số điện thoại: +84-888-222-999</li>
-                    <li>Địa chỉ: Số 288 Đường Nguyễn Văn Linh, Hưng Lợi, Ninh Kiều, Cần Thơ</li>
+                    <li>Địa chỉ: Số 2, Phạm Văn Bạch, Cầu Giấy, Hà Nội</li>
                 </ul>
             </div>
         </div>

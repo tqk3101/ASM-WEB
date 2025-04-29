@@ -952,7 +952,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="footer-copy-right">
-                        <p>Copyright ©<script>document.write(new Date().getFullYear());</script>All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <b>Phuong Mai</b></p>
+                        <p>Copyright ©<script>document.write(new Date().getFullYear());</script>All rights reserved | This template is made with by <b>Quang Khải</b></p>
                     </div>
                 </div>
             </div>

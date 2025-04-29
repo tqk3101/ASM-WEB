@@ -113,16 +113,23 @@ class CartController extends Controller
     public function addWishlist($id)
     {
         $all = Wishlist::where('id_user', '=', Auth::user()->id)->get();
-        foreach ($all as $item){
-            if($item->id_product == $id){
-                return redirect()->back()->with('status',"Sản phẩm đã có trong wishlist của bạn!");
-            }else{
-                session()->put('countW', session('countW') + 1);
-                Wishlist::create(array('id_product'=>$id, 'id_user'=>Auth::user()->id));
-                return redirect()->back()->with('status',"Thêm sản phẩm vào wishlist thành công!");
+        
+        foreach ($all as $item) {
+            if ($item->id_product == $id) {
+                return redirect()->back()->with('status', "Sản phẩm đã có trong wishlist của bạn!");
             }
         }
+    
+      
+        session()->put('countW', session('countW') + 1);
+        Wishlist::create([
+            'id_product' => $id,
+            'id_user' => Auth::user()->id
+        ]);
+    
+        return redirect()->back()->with('status', "Thêm sản phẩm vào wishlist thành công!");
     }
+    
     public function wishlist(){
         $categories = new Category();
         $cate = $categories->all(array('name', 'id'));
@@ -161,7 +168,7 @@ class CartController extends Controller
             $email = $order['email'];
             $phone = $order['phone'];
             $address = $order['address'];
-            $note = $order['note'];
+            $note = $order['note'] ?? '';
             $count = $order['count'];
             $payment_status = 'Chưa thanh toán';
             $delivery_status = 'Chưa giao hàng';

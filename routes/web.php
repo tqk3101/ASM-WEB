@@ -21,6 +21,7 @@ Route::get('/home', 'App\Http\Controllers\HomeController@index');
 Route::get('/about', 'App\Http\Controllers\HomeController@about');
 Route::get('/collection', 'App\Http\Controllers\Client\ProductsController@index');
 Route::get('/product/{id}', 'App\Http\Controllers\Client\ProductsController@showItem');
+Route::get('/product-cat/{id}', 'App\Http\Controllers\Client\ProductsController@productCat');
 Route::get('/posts', 'App\Http\Controllers\Client\BlogsController@index');
 Route::get('/post/{id}', 'App\Http\Controllers\Client\BlogsController@showItem');
 Route::get('/cart', 'App\Http\Controllers\Client\CartController@index');
@@ -37,15 +38,12 @@ Route::get('/user/profile/change-pass/{id}', 'App\Http\Controllers\Client\Accoun
 Route::post('/user/profile/update-pass/{id}', 'App\Http\Controllers\Client\AccountController@changePass');
 
 
-Route::group(['middleware' => ['admin']], function () {
-    Route::get('/wishlist', 'App\Http\Controllers\Client\CartController@wishlist');
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/wishlist', 'App\Http\Controllers\Client\CartController@wishlist')->name('wishlist');
+    Route::get('/wishlist-remove/{id}', 'App\Http\Controllers\Client\CartController@wishlistRemove')->name('wishlist.remove');
+    Route::get('/wishlist/{id}', 'App\Http\Controllers\Client\CartController@addWishlist')->name('wishlist.add');
 });
-Route::group(['middleware' => ['admin']], function () {
-    Route::get('/wishlist-remove/{id}', 'App\Http\Controllers\Client\CartController@wishlistRemove');
-});
-Route::group(['middleware' => ['admin']], function () {
-    Route::get('/wishlist/{id}', 'App\Http\Controllers\Client\CartController@addWishlist');
-});
+
 
 // ROUTE DASHBOARD
 Route::group(['middleware' => ['admin']], function () {
@@ -135,4 +133,7 @@ Route::group(['middleware' => ['admin']], function () {
 // ROUTE ADMIN BILLS
 Route::group(['middleware' => ['admin']], function () {
     Route::get('/admin/bills', 'App\Http\Controllers\Admin\BillsController@index');
+    Route::get('/admin/bills/edit/{id}', 'App\Http\Controllers\Admin\BillsController@edit');
+    Route::post('/admin/bills/update/{id}', 'App\Http\Controllers\Admin\BillsController@update');
+    Route::post('/admin/bills/delete', 'App\Http\Controllers\Admin\BillsController@delete');
 });

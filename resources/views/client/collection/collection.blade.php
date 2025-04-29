@@ -58,7 +58,7 @@
                         <h4>Loại sản phẩm</h4>
                         <ul>
                             @foreach($categories as $cate)
-                            <li><a href="#">{{ $cate->name }}</a></li>
+                            <li><a href="/product-cat/<?=$cate->id?>">{{ $cate->name }}</a></li>
                             @endforeach
                         </ul>
                     </div>
@@ -121,22 +121,39 @@
                     <div class="sidebar__item">
                         <div class="latest-product__text">
                             <h4>Sản phẩm mới</h4>
-                            <?php
-                                $arr = [];  $arr1 = [];  $arr2 = [];
-                                foreach ($new_products as $key=>$item){
+                            @php
+                            $arr = [];
+                            $arr1 = [];
+                            $arr2 = [];
+                        
+                            // Chỉ xử lý nếu $new_products có phần tử
+                            if (isset($new_products) && $new_products->count() > 0) {
+                                $newArr = array_values($new_products->take(6)->toArray());
+                        
+                                foreach ($newArr as $key => $item) {
                                     $arr[$key] = $item;
                                 }
-                                for ($i = 0; $i <= 2; $i++)
-                                {
-                                    $arr1[$i] =  $arr[$i];
+                        
+                                for ($i = 0; $i <= 2; $i++) {
+                                    if (isset($arr[$i])) {
+                                        $arr1[$i] = $arr[$i];
+                                    }
                                 }
-                                for ($i = 3; $i <= 5; $i++)
-                                {
-                                    $arr2[$i] =  $arr[$i];
+                        
+                                for ($i = 3; $i <= 5; $i++) {
+                                    if (isset($arr[$i])) {
+                                        $arr2[$i - 3] = $arr[$i];
+                                    }
                                 }
-                            ?>
+                            }
+                        @endphp 
                             <div class="latest-product__slider owl-carousel">
                                 <div class="latest-prdouct__slider__item">
+                                    @php
+                                    $arr1 = array_map(function($item) {
+                                        return (object) $item;
+                                        }, $arr1);
+                                    @endphp 
                                     @foreach($arr1 as $new_item1)
                                     <a href="/product/<?=$new_item1->id?>" class="latest-product__item">
                                         <div class="latest-product__item__pic">
@@ -150,6 +167,11 @@
                                     @endforeach
                                 </div>
                                 <div class="latest-prdouct__slider__item">
+                                    @php
+                                        $arr2 = array_map(function($item) {
+                                            return (object) $item;
+                                        }, $arr2);
+                                    @endphp
                                     @foreach($arr2 as $new_item2)
                                     <a href="/product/<?=$new_item2->id?>" class="latest-product__item">
                                         <div class="latest-product__item__pic">

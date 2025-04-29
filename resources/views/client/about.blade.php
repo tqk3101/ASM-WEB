@@ -23,24 +23,21 @@
         <h2 class="text-danger pb-4">GIỚI THIỆU VỀ GRAPHICS TABLET</h2>
         <div class="node-news-full-body">
             <div class="node-news-full-body-container">
-                <p><strong>Tên công ty: Công Ty TNHH Đầu Tư và Phát Triển Công Nghệ GT.</strong></p>
+                <p><strong>Tên công ty: Công Ty ba anh em.</strong></p>
 
-                <p><strong>1. Địa chỉ</strong>&nbsp;Số 288 Đường Nguyễn Văn Linh, Hưng Lợi, Ninh Kiều, Cần Thơ</p>
+                <p><strong>1. Địa chỉ</strong>&nbsp;Số 2 Đường Phạm Văn Bạch, Cầu Giấy, Hà Nội</p>
 
                 <p>
                     <strong>2. Số điện thoại</strong>&nbsp;<strong>+84 888 222 999</strong>
                 </p>
 
-                <p><strong>Giám đốc :&nbsp;Đỗ Thị Phượng Mai.</strong>
-                </p>
-
-                <p><strong>Tên viết tắt :&nbsp;</strong><strong>GT INVESTMENT TECHNOLOGY DEVELOPMENT COMPANY LIMITED</strong></p>
+                <p><strong>Giám đốc :&nbsp;Trần Quang Khải.</strong></p>
 
                 <p><strong>I. Ngành nghề kinh doanh :</strong></p>
 
                 <p>-&nbsp;Nhà Phân phối bảng vẽ đồ họa (Bảng vẽ
                     điện tử)&nbsp;<strong>WACOM, HUION,
-                        PARBLO</strong>&nbsp;toàn miền Nam</p>
+                        PARBLO</p>
 
                 <p>-&nbsp;Chuyên cung cấp, phân phối sỉ và lẻ thiết
                     bị công nghệ thông tin.</p>
@@ -53,10 +50,9 @@
 
                 <p><strong>II. Quá trình hình thành :</strong></p>
 
-                <p><strong>Công ty TNHH Đầu tư và Phát triển Công
-                        nghệ GT:</strong>&nbsp;một thành viên
+                <p><strong>Công ty ba anh em: </strong>&nbsp;Một thành viên
                     gạo cội trong ngành công nghệ thông tin,&nbsp;ra
-                    đời năm 2018 ngay từ những ngày đầu mới thành
+                    đời năm 2025 ngay từ những ngày đầu mới thành
                     lập, chúng tôi hiểu rằng kỹ thuật và dịch vụ tạo
                     nên chất lượng và thương hiệu của doanh nghiệp.
                 </p>
@@ -86,7 +82,7 @@
                 <p><strong>IV. Mục tiêu phấn đấu :</strong></p>
 
                 <p>-&nbsp;Trở thành một trong những công ty hàng đầu
-                    tại Cần Thơ cung cấp các sản phẩm CNTT có chất
+                     cung cấp các sản phẩm CNTT có chất
                     lượng và giá cả tốt đến tận tay khách hàng.</p>
 
                 <p>- Phát triển và ứng dụng công nghệ, dịch vụ mới
@@ -109,7 +105,7 @@
                     ngoài khu vực nhằm mở rộng mặt hàng cũng như hợp
                     tác nghiên cứu phát triển công nghệ.</p>
 
-                <p>Email :&nbsp;<strong>graphicstablet@gmail.com</strong>
+                <p>Email :&nbsp;<strong>Khaitqgch211419@fpt.edu.vn</strong>
                 </p>
 
                 <p><strong>Graphics Tablet hy vọng sẽ có cơ hội được

@@ -48,9 +48,11 @@ class ProductsController extends Controller
         $mau_sac = $request->input('mau_sac');
         $do_phan_giai = $request->input('do_phan_giai');
         $information = $kich_thuoc.'|'.$trong_luong.'|'.$mau_sac.'|'.$do_phan_giai;
-        Product::create(array('image'=>$imageName, 'name'=>$name, 'price'=>$price,
-        'discount'=>$discount, 'availability'=>$availability, 'short_description'=>$short_description,
-            'catalog_id'=>$catalog_id, 'description'=>$description, 'information'=>$information,
+        Product::create(array(
+            'image'=>$imageName, 'name'=>$name, 'price'=>$price,
+            'discount'=>$discount, 'availability'=>$availability, 
+            'short_description'=>$short_description, 'catalog_id'=>$catalog_id, 
+            'description'=>$description, 'information'=>$information,
             'image_list'=>$image_list, 'view'=>$view, 'outstanding'=>$outstanding));
         return redirect('/admin/products/add')->with('status',"Thêm thành công!");
     }
