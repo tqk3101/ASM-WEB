@@ -130,7 +130,6 @@ Route::group(['middleware' => ['admin']], function () {
 Route::group(['middleware' => ['admin']], function () {
     Route::post('/admin/products/delete', 'App\Http\Controllers\Admin\ProductsController@delete');
 });
-
 // ROUTE ADMIN BILLS
 Route::group(['middleware' => ['admin']], function () {
     Route::get('/admin/bills', 'App\Http\Controllers\Admin\BillsController@index');
