@@ -12,4 +12,4 @@ class Repository extends BaseModel
     function insertData(){
 
     }
-}
+}//update

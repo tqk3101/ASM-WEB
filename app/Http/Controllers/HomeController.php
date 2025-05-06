@@ -20,7 +20,7 @@ class HomeController extends Controller
 //    {
 //        $this->middleware('auth');
 //    }
-
+//update
     /**
      * Show the application dashboard.
      *

@@ -17,7 +17,7 @@ class AddAvatarInUsers extends Migration
             $table->string('avatar')->after('id');
         });
     }
-
+//update
     /**
      * Reverse the migrations.
      *

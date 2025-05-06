@@ -68,6 +68,6 @@ class AccountController extends Controller
             'user'=>$user,
             'id'=>$id,
             'message'=>'Cập nhật tài khoản thành công!'
-        ]);
+        ]);//update
     }
 }

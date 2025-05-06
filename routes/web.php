@@ -14,6 +14,7 @@ use App\Models\Category;
 */
 
 
+
 Auth::routes();
 
 Route::get('/', 'App\Http\Controllers\HomeController@index');

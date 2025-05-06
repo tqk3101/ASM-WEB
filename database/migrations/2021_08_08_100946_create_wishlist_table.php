@@ -31,4 +31,4 @@ class CreateWishlistTable extends Migration
     {
         Schema::dropIfExists('wishlist');
     }
-}
+}//update

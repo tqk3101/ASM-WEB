@@ -13,7 +13,7 @@ class CheckPhoneNumber implements Rule
      */
     public function __construct()
     {
-        //
+        ////update
     }
 
     /**

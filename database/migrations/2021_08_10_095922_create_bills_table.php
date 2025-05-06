@@ -38,4 +38,4 @@ class CreateBillsTable extends Migration
     {
         Schema::dropIfExists('bills');
     }
-}
+}//update

@@ -143,12 +143,15 @@ class CartController extends Controller
             'wishlist'=>$wishlist
         ]);
     }
-    public function wishlistRemove($id){
+    
+    public function wishlistRemove($id)
+    {
         session()->put('countW', session('countW') - 1);
         $wishlist = new Wishlist();
         $wishlist->withTrashed()->where('id', '=', $id)->forceDelete();
         return redirect()->back()->with('status',"Xóa sản phẩm trong wishlist thành công!");
     }
+
     public function payment(Request $request){
         $order = session()->get('order', []);
         $order = [
@@ -191,7 +194,7 @@ class CartController extends Controller
                     )
                 );
 
-            // var_dump($insert_bill);
+           
             if ($bill_ID) {
                 $cart = session()->get('cart', []);
                 $detail_bill = new Detail_Bill();
@@ -227,16 +230,16 @@ class CartController extends Controller
             $price_to_pay = $total_price * 100;
             error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
 
-            // config.php
-            $vnp_TmnCode = "ZVYN925E"; //Mã website tại VNPAY
-            $vnp_HashSecret = "TJAPLVJKGQGEAKISHNHFBREVGCWMLWCW"; //Chuỗi bí mật
+            
+            $vnp_TmnCode = "ZVYN925E"; 
+            $vnp_HashSecret = "TJAPLVJKGQGEAKISHNHFBREVGCWMLWCW"; 
             $vnp_Url = "http://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
             $vnp_Returnurl = "http://127.0.0.1:8000/return";
 
 
-            // end config.php
+         
 
-            $vnp_TxnRef = date("YmdHis"); //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
+            $vnp_TxnRef = date("YmdHis"); 
             $vnp_OrderInfo = 'Thanh toán đơn hàng';
             $vnp_OrderType = 'billpayment';
             $vnp_Amount = $price_to_pay * 100;
@@ -279,11 +282,11 @@ class CartController extends Controller
 
             $vnp_Url = $vnp_Url . "?" . $query;
             if (isset($vnp_HashSecret)) {
-                // $vnpSecureHash = md5($vnp_HashSecret . $hashdata);
+               
                 $vnpSecureHash = hash('sha256', $vnp_HashSecret . $hashdata);
                 $vnp_Url .= 'vnp_SecureHashType=SHA256&vnp_SecureHash=' . $vnpSecureHash;
             }
-            // var_dump($vnp_Url);
+           
             return redirect($vnp_Url);
         }
 
@@ -322,7 +325,7 @@ class CartController extends Controller
                     )
                 );
 
-            // var_dump($insert_bill);
+         
             if ($bill_ID) {
                 $cart = session()->get('cart', []);
                 $detail_bill = new Detail_Bill();

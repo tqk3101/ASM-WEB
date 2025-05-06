@@ -13,6 +13,6 @@ class BaseModel extends Model
     }
     public function sqlStatement($sql_stmt){
         DB::statement($sql_stmt);
-    }
+    }//update
 }
 

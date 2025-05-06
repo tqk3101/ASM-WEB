@@ -23,17 +23,94 @@
     <!-- Checkout Section Begin -->
     <section class="checkout spad">
         <div class="container">
-{{--            <div class="row">--}}
-{{--                <div class="col-lg-12">--}}
-{{--                    <h6><span class="icon_tag_alt"></span> Have a coupon? <a href="#">Click here</a> to enter your code--}}
-{{--                    </h6>--}}
-{{--                </div>--}}
-{{--            </div>--}}
             <div class="checkout__form">
                 <h4>Chi tiết thanh toán</h4>
 
                 <div class="row">
-                        <div class="col-lg-7 col-md-6">
+                    <div class="col-lg-7 col-md-6">
+                        @if(Auth::check())
+                            <!-- Nếu người dùng đã đăng nhập, hiển thị form đặt hàng -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="mb-0 text-white">
+                                        <span class="btn text-white">THÔNG TIN ĐẶT HÀNG</span>
+                                    </h5>
+                                </div>
+                                <div class="card-body">
+                                    <form action="/order" method="post">
+                                        @csrf
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="checkout__input">
+                                                    <p>Tên<span>*</span></p>
+                                                    <input type="text" name="name" value="{{ Auth::user()->name }}" readonly>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="checkout__input">
+                                                    <p>Email<span>*</span></p>
+                                                    <input type="text" name="email" value="{{ Auth::user()->email }}" readonly>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="checkout__input">
+                                            <p>Số điện thoại<span>*</span></p>
+                                            <input type="text" name="phone" value="{{ Auth::user()->phone ?? '' }}">
+                                        </div>
+                                        <div class="checkout__input">
+                                            <p>Địa chỉ giao hàng<span>*</span></p>
+                                            <input type="text" placeholder="Địa chỉ nhà" name="address" value="{{ Auth::user()->address ?? '' }}">
+                                        </div>
+                                        <div class="checkout__input">
+                                            <p>Ghi chú đơn hàng<span>*</span></p>
+                                            <input type="text"
+                                                placeholder="Ghi chú về đơn đặt hàng của bạn,
+                                                ví dụ: những lưu ý đặc biệt khi giao hàng." name="note">
+                                        </div>
+                                        <div class="checkout__input">
+                                            <p>Phương thức thanh toán <span>*</span></p>
+                                            @php $total = 0 @endphp
+                                            @php $count = 0 @endphp
+                                            @foreach(session('cart') as $id => $details)
+                                                @php $total += $details['price'] * $details['quantity'] @endphp
+                                                @php $count += $details['quantity'] @endphp
+                                            @endforeach
+                                            <input type="hidden" value="<?=$total?>" name="total">
+                                            <input type="hidden" value="<?=$count?>" name="count">
+                                            <div id="accordion3">
+                                                <div class="col-12">
+                                                    <div class="text-left">
+                                                        <button type="button" class="btn d-block pl-0 pb-0" data-toggle="collapse" data-target="#payment1" aria-expanded="true" aria-controls="payment1">
+                                                            <label class="btn active pl-0" data-toggle="collapse" data-target="#payment1" href="#collapseExample" aria-expanded="false">
+                                                                <input type="radio" name="options" id="option2" autocomplete="off" checked style="height: 20px;width: auto">
+                                                                <span style="position: absolute;line-height: 20px;">Thanh toán sau khi nhận hàng</span>
+                                                            </label>
+                                                        </button>
+                                                        <button type="button" class="btn pt-0 pb-0 pl-0" data-toggle="collapse" data-target="#payment2" aria-expanded="false" aria-controls="payment2">
+                                                            <label class="btn active pl-0" data-toggle="collapse" data-target="#payment2" href="#collapseExample" aria-expanded="false">
+                                                                <input type="radio" name="options" id="option2" autocomplete="off" style="height: 20px; width: auto">
+                                                                <span style="position: absolute;line-height: 20px;">Thanh toán bằng VNPAY</span>
+                                                            </label>
+                                                        </button>
+                                                    </div>
+                                                    <div id="payment1" class="collapse mt-3 show" aria-labelledby="heading1" data-parent="#accordion3">
+                                                        <div>
+                                                            <button type="submit" class="site-btn" name="order" value="1">ĐẶT HÀNG</button>
+                                                        </div>
+                                                    </div>
+                                                    <div id="payment2" class="collapse mt-3 mb-4" aria-labelledby="heading2" data-parent="#accordion3">
+                                                        <div>
+                                                            <button type="submit" class="site-btn" name="order-and-payment" value="1">ĐẶT HÀNG VÀ THANH TOÁN</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        @else
+                            <!-- Nếu người dùng chưa đăng nhập, hiển thị các tùy chọn đăng nhập/đăng ký hoặc mua không cần tài khoản -->
                             <div id="accordion">
                                 <div class="card">
                                     <div class="card-header" id="headingOne">
@@ -59,41 +136,45 @@
                                                     </button>
                                                 </div>
                                                 <div id="collapse1" class="collapse mt-2 show" aria-labelledby="heading1" data-parent="#accordion2">
-                                                        <div class="card-body">
-                                                            <form method="POST" action="{{ route('login') }}">
-                                                                @csrf
+                                                    <div class="card-body">
+                                                        <form method="POST" action="{{ route('login') }}">
+                                                            @csrf
+                                                            <!-- Thêm trường ẩn để chuyển hướng sau khi đăng nhập -->
+                                                            <input type="hidden" name="redirect_to" value="/checkout">
 
-                                                                <div class="checkout__input">
-                                                                    <label for="email" class="control-label">{{ __('Username/Email') }}</label>
-                                                                    <input id="email" type="text" @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-                                                                    @error('email')
-                                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                                    @enderror
-                                                                </div>
+                                                            <div class="checkout__input">
+                                                                <label for="email" class="control-label">{{ __('Username/Email') }}</label>
+                                                                <input id="email" type="text" @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                                                @error('email')
+                                                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                                @enderror
+                                                            </div>
 
-                                                                <div class="checkout__input">
-                                                                    <label for="password" class="control-label">{{ __('Mật khẩu') }}</label>
-                                                                    <input id="password" type="password" @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-                                                                    @error('password')
-                                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                                    @enderror
-                                                                </div>
+                                                            <div class="checkout__input">
+                                                                <label for="password" class="control-label">{{ __('Mật khẩu') }}</label>
+                                                                <input id="password" type="password" @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                                                @error('password')
+                                                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                                @enderror
+                                                            </div>
 
-                                                                <div class="form-group">
-                                                                    <button type="submit" class="btn btn-success btn-block loginbtn">
-                                                                        {{ __('Đăng nhập') }}
-                                                                    </button>
-                                                                </div>
-                                                            </form>
-                                                        </div>
+                                                            <div class="form-group">
+                                                                <button type="submit" class="btn btn-success btn-block loginbtn">
+                                                                    {{ __('Đăng nhập') }}
+                                                                </button>
+                                                            </div>
+                                                        </form>
                                                     </div>
+                                                </div>
                                                 <div id="collapse2" class="collapse mt-2 mb-4" aria-labelledby="collapse2" data-parent="#accordion2">
                                                     <form method="POST" action="{{ route('register') }}">
                                                         @csrf
+                                                        <!-- Thêm trường ẩn để chuyển hướng sau khi đăng ký -->
+                                                        <input type="hidden" name="redirect_to" value="/checkout">
                                                         <div class="row">
                                                             <div class="col-lg-6">
                                                                 <div class="checkout__input">
@@ -123,8 +204,8 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="email" class="control-label">{{ __('Địa chỉ') }}</label>
-                                                            <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                                            <label for="address" class="control-label">{{ __('Địa chỉ') }}</label>
+                                                            <input id="address" type="text" class="form-control" name="address" value="{{ old('address') }}" required>
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="password" class="control-label">{{ __('Mật khẩu') }}</label>
@@ -133,8 +214,8 @@
 
                                                             @error('password')
                                                             <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
                                                             @enderror
                                                         </div>
                                                         <input type="hidden" name="role" value="0">
@@ -163,36 +244,35 @@
                                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                                         <div class="card-body">
                                             <form action="/order" method="post">
-                                        @csrf
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <div class="checkout__input">
-                                                    <p>Tên<span>*</span></p>
-                                                    <input type="text" name="name">
+                                                @csrf
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <div class="checkout__input">
+                                                            <p>Tên<span>*</span></p>
+                                                            <input type="text" name="name">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="checkout__input">
+                                                            <p>Email<span>*</span></p>
+                                                            <input type="text" name="email">
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-lg-6">
                                                 <div class="checkout__input">
-                                                    <p>Email<span>*</span></p>
-                                                    <input type="text" name="email">
+                                                    <p>Số điện thoại<span>*</span></p>
+                                                    <input type="text" name="phone">
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="checkout__input">
-                                            <p>Số điện thoại<span>*</span></p>
-                                            <input type="text" name="phone">
-                                        </div>
-                                        <div class="checkout__input">
-                                            <p>Địa chỉ giao hàng<span>*</span></p>
-                                            {{--                                <input type="text" placeholder="Địa chỉ đường" class="checkout__input__add">--}}
-                                            <input type="text" placeholder="Địa chỉ nhà" name="address">
-                                        </div>
-                                        <div class="checkout__input">
-                                            <p>Ghi chú đơn hàng<span>*</span></p>
-                                            <input type="text"
-                                                   placeholder="Ghi chú về đơn đặt hàng của bạn,
-                                           ví dụ: những lưu ý đặc biệt khi giao hàng." name="note">
-                                        </div>
+                                                <div class="checkout__input">
+                                                    <p>Địa chỉ giao hàng<span>*</span></p>
+                                                    <input type="text" placeholder="Địa chỉ nhà" name="address">
+                                                </div>
+                                                <div class="checkout__input">
+                                                    <p>Ghi chú đơn hàng<span>*</span></p>
+                                                    <input type="text"
+                                                        placeholder="Ghi chú về đơn đặt hàng của bạn,
+                                                        ví dụ: những lưu ý đặc biệt khi giao hàng." name="note">
+                                                </div>
                                                 <div class="checkout__input">
                                                     <p>Phương thức thanh toán <span>*</span></p>
                                                     @php $total = 0 @endphp
@@ -237,31 +317,32 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-5 col-md-6">
-                            <div class="checkout__order">
-                                <h4>Đơn hàng của bạn</h4>
-                                @php $total = 0 @endphp
-                                @php $count = 0 @endphp
-                                @if(session('cart'))
+                        @endif
+                    </div>
+                    <div class="col-lg-5 col-md-6">
+                        <div class="checkout__order">
+                            <h4>Đơn hàng của bạn</h4>
+                            @php $total = 0 @endphp
+                            @php $count = 0 @endphp
+                            @if(session('cart'))
 
-                                <div class="checkout__order__products">Sản phẩm <span>Tổng</span></div>
-                                <ul>
-                                    @foreach(session('cart') as $id => $details)
-                                        @php $total += $details['price'] * $details['quantity'] @endphp
-                                        @php $count += $details['quantity'] @endphp
+                            <div class="checkout__order__products">Sản phẩm <span>Tổng</span></div>
+                            <ul>
+                                @foreach(session('cart') as $id => $details)
+                                    @php $total += $details['price'] * $details['quantity'] @endphp
+                                    @php $count += $details['quantity'] @endphp
 
-                                    <li><span>{!! \Illuminate\Support\Str::limit($details['name'], $limit = 20, $end = '...')!!}</span> <span>{{ number_format($details['price'],3,".",".") }} đ</span></li>
-                                    @endforeach
+                                <li><span>{!! \Illuminate\Support\Str::limit($details['name'], $limit = 20, $end = '...')!!}</span> <span>{{ number_format($details['price'],3,".",".") }} đ</span></li>
+                                @endforeach
 
-                                </ul>
-                                <div class="checkout__order__subtotal">Phí giao hàng <span>0</span></div>
-                                <div class="checkout__order__total">Tổng <span>{{ number_format($total,3,".",".") }} đ</span></div>
+                            </ul>
+                            <div class="checkout__order__subtotal">Phí giao hàng <span>0</span></div>
+                            <div class="checkout__order__total">Tổng <span>{{ number_format($total,3,".",".") }} đ</span></div>
 
-                                @endif
-                            </div>
+                            @endif
                         </div>
                     </div>
+                </div>
             </div>
         </div>
     </section>

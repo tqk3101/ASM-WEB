@@ -14,3 +14,4 @@ class Category extends BaseModel
     protected $table = 'categories';
     protected $fillable = array('name', 'created_at','update_at', 'deleted_at');
 }
+//update

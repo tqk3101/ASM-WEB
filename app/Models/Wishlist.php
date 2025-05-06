@@ -15,4 +15,4 @@ class Wishlist extends Model
         'id_product',
         'id_user',
     ];
-}
+}//update

@@ -17,7 +17,7 @@ class AddSoftDeleteInUsers extends Migration
             $table->softDeletes();
         });
     }
-
+//update
     /**
      * Reverse the migrations.
      *

@@ -86,7 +86,7 @@ class ProductsController extends Controller
         if($request->input('outstanding')){
             $outstanding = $request->input('outstanding');
         }
-//
+//update
         $kich_thuoc = $request->input('kich_thuoc');
         $trong_luong = $request->input('trong_luong');
         $mau_sac = $request->input('mau_sac');

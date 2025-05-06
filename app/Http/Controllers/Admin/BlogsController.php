@@ -53,7 +53,7 @@ class BlogsController extends Controller
         $blog->content = $content;
         $blog->save();
         return redirect('/admin/blogs/edit/'.$id)->with('status',"Cập nhật thành công!");
-    }
+    }//update
     public function delete(Request $request){
         if($request->destroy == 1){
             $blog = new Blog();

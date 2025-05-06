@@ -24,6 +24,6 @@ class Product extends Model
         'view',
         'outstanding',
         'catalog_id',
-    ];
+    ];//update
 
 }

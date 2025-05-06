@@ -39,7 +39,7 @@ class BillsController extends Controller
         }else{
             $delivery_status ='Đã giao hàng';
         }
-
+//update
         $detail_bill = Bill::find($id);
         $detail_bill->payment_status = $payment_status;
         $detail_bill->delivery_status = $delivery_status;

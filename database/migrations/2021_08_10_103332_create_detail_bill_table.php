@@ -34,3 +34,4 @@ class CreateDetailBillTable extends Migration
         Schema::dropIfExists('detail_bill');
     }
 }
+//update

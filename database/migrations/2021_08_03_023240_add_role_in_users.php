@@ -17,7 +17,7 @@ class AddRoleInUsers extends Migration
             $table->integer('role')->after('remember_token');
         });
     }
-
+//update
     /**
      * Reverse the migrations.
      *

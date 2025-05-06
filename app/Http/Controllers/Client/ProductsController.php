@@ -43,7 +43,7 @@ class ProductsController extends Controller
         $products = new Product();
         $product_cat = $products::where('catalog_id', '=', $id)->paginate(10);
         $new_products = Product::orderBy('created_at', 'DESC')->take(6)->get();
-//        $product_cat = $productc->paginate(12);
+
         return view('client/collection/product_cat',[
             'nameCat'=>$name_cat->name,
             'categories' => $cate,

@@ -18,4 +18,4 @@ class Detail_Bill extends Model
         'image',
         'id_order'
     ];
-}
+}//update

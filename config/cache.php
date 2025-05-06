@@ -71,7 +71,7 @@ return [
                     'weight' => 100,
                 ],
             ],
-        ],
+        ],//update
 
         'redis' => [
             'driver' => 'redis',

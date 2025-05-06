@@ -22,5 +22,5 @@ class IsAdmin
         }
 
         return redirect('home')->with('error','Bạn không có quyền truy cập quản trị viên!');
-    }
+    }//update
 }

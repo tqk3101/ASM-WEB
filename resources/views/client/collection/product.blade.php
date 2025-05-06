@@ -32,16 +32,7 @@
                         <img class="product__details__pic__item--large"
                              src="{{URL::asset('/upload/products/'.$product->image)}}" alt="">
                     </div>
-{{--                    <div class="product__details__pic__slider owl-carousel">--}}
-{{--                        <img data-imgbigurl="img/product/details/product-details-2.jpg"--}}
-{{--                             src="img/product/details/thumb-1.jpg" alt="">--}}
-{{--                        <img data-imgbigurl="img/product/details/product-details-3.jpg"--}}
-{{--                             src="img/product/details/thumb-2.jpg" alt="">--}}
-{{--                        <img data-imgbigurl="img/product/details/product-details-5.jpg"--}}
-{{--                             src="img/product/details/thumb-3.jpg" alt="">--}}
-{{--                        <img data-imgbigurl="img/product/details/product-details-4.jpg"--}}
-{{--                             src="img/product/details/thumb-4.jpg" alt="">--}}
-{{--                    </div>--}}
+
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
@@ -67,18 +58,12 @@
                     @endif
 
                     <p>{{ $product->short_description }}</p>
-{{--                    <div class="product__details__quantity">--}}
-{{--                        <div class="quantity">--}}
-{{--                            <div class="pro-qty">--}}
-{{--                                <input type="text" value="1">--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
+
                     <a href="/add-to-cart/<?=$product->id?>" class="primary-btn">THÊM VÀO GIỎ HÀNG</a>
                     <a href="#" class="heart-icon"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
                     <ul>
                         <li><b>Trạng thái: </b> <span><?php if($product->availability == 0){echo 'Hết hàng';} else{echo 'Còn hàng';}?></span></li>
-{{--                        <li><b>Shipping</b> <span>01 day shipping. <samp>Free pickup today</samp></span></li>--}}
+
                         <li><b>Thể loại: </b> <span>{{ $cateName->name }}</span></li>
                         <li><b>Share on</b>
                             <div class="share">

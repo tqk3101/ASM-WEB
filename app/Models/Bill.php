@@ -22,5 +22,5 @@ class Bill extends Model
         'total',
         'payment_status',
         'delivery_status'
-    ];
+    ];//update
 }

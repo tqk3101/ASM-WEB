@@ -1,4 +1,4 @@
-@extends('layouts.master')
+{{-- @extends('layouts.master')
 @section('title', 'Graphics Tablet - Home')
 
 @section('client')
@@ -123,4 +123,4 @@
         </div>
     @endif
 
-@stop
+@stop --}}

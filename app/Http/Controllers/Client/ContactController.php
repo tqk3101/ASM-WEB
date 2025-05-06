@@ -13,6 +13,6 @@ class ContactController extends Controller
         $data = $categories->all(array('name', 'id'));
         return view('client/contact', [
             'categories' => $data
-        ]);
+        ]);//update
     }
 }

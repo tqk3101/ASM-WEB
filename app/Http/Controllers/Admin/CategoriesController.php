@@ -33,7 +33,7 @@ class CategoriesController extends Controller
         $category->name = $data;
         $category->save();
         return redirect('/admin/categories/edit/'.$id)->with('status',"Cập nhật thành công!");
-    }
+    }//update
     public function delete(Request $request){
         if($request->destroy == 1){
             $category = new Category();

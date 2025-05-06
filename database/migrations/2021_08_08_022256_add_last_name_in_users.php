@@ -30,3 +30,4 @@ class AddLastNameInUsers extends Migration
         });
     }
 }
+//update

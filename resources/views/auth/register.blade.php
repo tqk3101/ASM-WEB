@@ -45,6 +45,7 @@
                                 </span>
                             @enderror
                         </div>
+                        
 
                         <div class="form-group">
                             <label for="password" class="control-label">{{ __('Mật khẩu') }}</label>

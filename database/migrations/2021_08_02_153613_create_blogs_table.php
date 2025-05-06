@@ -22,7 +22,7 @@ class CreateBlogsTable extends Migration
             $table->softDeletes();
         });
     }
-
+//update
     /**
      * Reverse the migrations.
      *

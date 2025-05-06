@@ -110,6 +110,8 @@
                 "doctrine",
                 "time"
             ],
+
+            
             "support": {
                 "issues": "https://github.com/CarbonPHP/carbon-doctrine-types/issues",
                 "source": "https://github.com/CarbonPHP/carbon-doctrine-types/tree/3.2.0"

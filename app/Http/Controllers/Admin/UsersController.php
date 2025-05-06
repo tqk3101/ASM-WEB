@@ -40,6 +40,7 @@ class UsersController extends Controller
         $user = User::find($id);
         return view('admin/users/edit',['user'=>$user]);
     }
+    //update
     public function update(Request $request, $id){
         if (request()->hasFile('image')){
             $imageName = $request->file('image')->getClientOriginalName();

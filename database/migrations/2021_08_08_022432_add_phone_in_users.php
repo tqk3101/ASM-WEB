@@ -29,4 +29,4 @@ class AddPhoneInUsers extends Migration
             $table->dropColumn('phone');
         });
     }
-}
+}//update

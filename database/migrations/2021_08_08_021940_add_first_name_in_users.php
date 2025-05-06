@@ -29,4 +29,4 @@ class AddFirstNameInUsers extends Migration
             $table->dropColumn('first_name');
         });
     }
-}
+}//update

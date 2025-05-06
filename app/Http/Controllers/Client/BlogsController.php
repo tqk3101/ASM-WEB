@@ -33,5 +33,5 @@ class BlogsController extends Controller
                 'blog'=>$blog,
                 'blogs_other'=>$blogs_other
             ]);
-    }
+    }//update
 }

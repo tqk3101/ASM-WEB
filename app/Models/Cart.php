@@ -12,4 +12,4 @@ class Cart extends Model
     protected $primaryKey = 'id';
     protected $table = 'cart';
     protected $fillable = array('id_product', 'quantity','id_user');
-}
+}//update

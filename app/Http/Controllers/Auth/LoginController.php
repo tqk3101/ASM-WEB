@@ -47,5 +47,22 @@ class LoginController extends Controller
                 $field=>$request->get($this->username()),
                 'password'=>$request->password,
             ];
+    }//update
+    /**
+     * Override the authenticated method to handle custom redirect after login
+     * 
+     * @param Request $request
+     * @param mixed $user
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    protected function authenticated(Request $request, $user)
+    {
+        // Check if there's a redirect_to parameter in the request
+        if ($request->has('redirect_to')) {
+            return redirect($request->input('redirect_to'));
+        }
+        
+        // Otherwise use the default redirect
+        return redirect()->intended($this->redirectPath());
     }
 }

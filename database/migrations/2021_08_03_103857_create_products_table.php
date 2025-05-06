@@ -29,7 +29,7 @@ class CreateProductsTable extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
-    }
+    }//update
 
     /**
      * Reverse the migrations.

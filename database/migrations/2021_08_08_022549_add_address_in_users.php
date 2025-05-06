@@ -29,4 +29,4 @@ class AddAddressInUsers extends Migration
             $table->dropColumn('address');
         });
     }
-}
+}//update

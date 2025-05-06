@@ -26,7 +26,7 @@ class Handler extends ExceptionHandler
         'password',
         'password_confirmation',
     ];
-
+//update
     /**
      * Register the exception handling callbacks for the application.
      *

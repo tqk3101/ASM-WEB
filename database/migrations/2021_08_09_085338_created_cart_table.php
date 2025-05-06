@@ -32,4 +32,4 @@ class CreatedCartTable extends Migration
     {
         Schema::dropIfExists('cart');
     }
-}
+}//update

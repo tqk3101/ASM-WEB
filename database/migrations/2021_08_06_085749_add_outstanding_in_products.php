@@ -29,4 +29,4 @@ class AddOutstandingInProducts extends Migration
             $table->dropColumn('outstanding');
         });
     }
-}
+}//update

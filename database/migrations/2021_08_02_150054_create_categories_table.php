@@ -20,7 +20,7 @@ class CreateCategoriesTable extends Migration
             $table->softDeletes();
         });
     }
-
+//update
     /**
      * Reverse the migrations.
      *

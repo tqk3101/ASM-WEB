@@ -67,6 +67,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        \Log::info('User registration data:', $data);
         return User::create([
             'avatar' => $data['avatar'],
             'name' => $data['name'],
@@ -75,5 +76,22 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'role' => $data['role'],
         ]);
+    }//update
+      /**
+     * Override the registered method to handle custom redirect after registration
+     * 
+     * @param Request $request
+     * @param mixed $user
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    protected function registered(Request $request, $user)
+    {
+        // Check if there's a redirect_to parameter in the request
+        if ($request->has('redirect_to')) {
+            return redirect($request->input('redirect_to'));
+        }
+        
+        // Otherwise use the default redirect
+        return redirect($this->redirectPath());
     }
 }

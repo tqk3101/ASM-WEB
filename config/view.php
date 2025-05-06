@@ -27,7 +27,7 @@ return [
     | directory. However, as usual, you are free to change this value.
     |
     */
-
+//update
     'compiled' => env(
         'VIEW_COMPILED_PATH',
         realpath(storage_path('framework/views'))
